@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Meme</title>
+  <meta http-equiv="refresh" content="5">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+    <!-- Explanation section above the meme container -->
+    <div class="info-container">
+      <h1>Welcome to the Meme Showcase!</h1>
+      <p>
+        This website automatically fetches a random, safe-for-work meme from Reddit every 5 minutes.
+        It uses Flask as the backend to retrieve new memes and refreshes the page so you always see fresh content.
+        Sit back, relax, and enjoy the humor!
+      </p>
+      <p>Disclaimer: Mostly the memes are repeated</p>
+    </div>
+  <div class="meme-container">
+    {% if meme_url %}
+      <img src="{{ meme_url }}" alt="Random Meme" class="meme-image">
+    {% else %}
+      <p class="error-message">🚫 Could not load meme. The internet needs more spicy mayo! 🚫</p>
+    {% endif %}
+  </div>
+  <!-- <div class="footer">
+    <p>🔥 Refreshing fresh memes every 5 minutes 🔥</p>
+  </div> -->
+</body>
+</html>
